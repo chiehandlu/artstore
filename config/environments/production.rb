@@ -82,4 +82,15 @@ Rails.application.configure do
   end
 
   config.action_mailer.default_url_options = { host: 'https://safe-garden-39143.herokuapp.com/products' }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    port:           587,
+    address:        "smtp.mailgun.org",
+    user_name:      ENV["mailgun_user"],
+    password:       ENV["mailgun_secret"],
+    domain:         "sandbox54741f47b5f2425fa34c7e927f78bba3.mailgun.org",
+    authentication: :plain,
+  }
+end
 end
